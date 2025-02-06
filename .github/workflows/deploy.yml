@@ -36,11 +36,11 @@ jobs:
 
       - name: Build and Package Maven
         id: package
-        working-directory: lab02/spring-boot-hello-world-example
+        working-directory: spring-boot-hello-world-example
         run: $GITHUB_WORKSPACE/.github/scripts/build.sh
 
       - name: Upload Artifact to s3
-        working-directory: lab02/spring-boot-hello-world-example/target
+        working-directory: spring-boot-hello-world-example/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
         
   deploy:
